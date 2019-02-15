@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="22926" started-at="2019-02-15T18:52:22Z" finished-at="2019-02-15T18:52:45Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="22926" started-at="2019-02-15T18:52:22Z" finished-at="2019-02-15T18:52:45Z">
+      <class name="com.hooq.interview.test.TestApplication">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.hooq.interview.test.TestApplication@204f30ec]" name="init" is-config="true" duration-ms="8918" started-at="2019-02-15T18:52:22Z" finished-at="2019-02-15T18:52:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="RegistrationOfUser()[pri:1, instance:com.hooq.interview.test.TestApplication@204f30ec]" name="RegistrationOfUser" duration-ms="7344" started-at="2019-02-15T18:52:31Z" finished-at="2019-02-15T18:52:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RegistrationOfUser -->
+        <test-method status="PASS" signature="logoutSuccess()[pri:0, instance:com.hooq.interview.test.TestApplication@204f30ec]" name="logoutSuccess" is-config="true" duration-ms="2433" started-at="2019-02-15T18:52:38Z" finished-at="2019-02-15T18:52:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutSuccess -->
+        <test-method status="PASS" signature="LoginWithNewlyCreatedAccount()[pri:0, instance:com.hooq.interview.test.TestApplication@204f30ec]" name="LoginWithNewlyCreatedAccount" duration-ms="1897" started-at="2019-02-15T18:52:41Z" depends-on-methods="com.hooq.interview.test.TestApplication.RegistrationOfUser" finished-at="2019-02-15T18:52:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginWithNewlyCreatedAccount -->
+        <test-method status="PASS" signature="logoutSuccess()[pri:0, instance:com.hooq.interview.test.TestApplication@204f30ec]" name="logoutSuccess" is-config="true" duration-ms="2225" started-at="2019-02-15T18:52:42Z" finished-at="2019-02-15T18:52:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutSuccess -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.hooq.interview.test.TestApplication@204f30ec]" name="teardown" is-config="true" duration-ms="95" started-at="2019-02-15T18:52:45Z" finished-at="2019-02-15T18:52:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.hooq.interview.test.TestApplication -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
