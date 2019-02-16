@@ -1,11 +1,12 @@
 package com.hooq.interview.test;
 
-import org.testng.Assert;
-import org.testng.ITestContext;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+
 import com.hooq.interview.pageobjects.SignInPage;
 import com.hooq.interview.utility.BaseClass;
 import com.hooq.interview.utility.Utils;
@@ -26,22 +27,27 @@ public class TestApplication extends BaseClass {
 	public void LoginWithNewlyCreatedAccount() {
 		
 		signin.SignInExistingUser(SignInPage.enterEmailaddress, "Password");
+		AssertJUnit.assertTrue(driver.getTitle().contains("My account - My Store"));
 		myaccount.click_logout();
-		Assert.assertTrue(driver.getTitle().contains("My account - My Store"));
+		
 	}
 	
 	@Test(priority=3,dependsOnMethods = "LoginWithNewlyCreatedAccount",description="Sign In with invalid credentials")
 	public void loginWithInvalidCrfedentials() {
 		
 		signin.SignInExistingUser("invaliduser@test.com", "Password");
-		Assert.assertFalse(driver.getTitle().contains("My account - My Store"));
+		AssertJUnit.assertFalse(driver.getTitle().contains("My account - My Store"));
 	}
 	
+	@BeforeMethod
+	public void screenshotsBeforeMethod() {
+		Utils.takeScreenShots(driver);
+	}
 
 
 	@AfterMethod
-	public void logoutSuccess(ITestResult test) {
-		Utils.takeScreenShots(driver, test);
+	public void screenshotsAfterMethod() {
+		Utils.takeScreenShots(driver);
 	}
 
 	@AfterTest

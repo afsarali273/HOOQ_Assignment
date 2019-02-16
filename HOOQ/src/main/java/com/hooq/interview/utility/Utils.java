@@ -8,6 +8,7 @@ import static org.apache.commons.lang.StringUtils.leftPad;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -15,8 +16,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
 
 public class Utils {
 	
@@ -45,11 +44,12 @@ public class Utils {
 	    return sb.toString();
 	  }
 	
-	public static void takeScreenShots(WebDriver driver,ITestResult test) {
+	public static void takeScreenShots(WebDriver driver) {
 		// Take screenshot and store as a file format
 		File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
-		FileUtils.copyFile(src, new File(System.getProperty("user.dir")+"/ScreenShots/"+test.getTestName()+".png"));
+			Date d=new Date();
+		FileUtils.copyFile(src, new File(System.getProperty("user.dir")+"/ScreenShots/"+d.toString()+".png"));
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
