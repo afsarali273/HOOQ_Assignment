@@ -41,6 +41,8 @@ public class SignInPage {
 	@FindBy(how=How.ID , using="SubmitLogin")
 	private WebElement button_login;
 	
+	@FindBy(how=How.XPATH , using="//*[@id=\"center_column\"]/div[1]/ol/li[contains(text(),'Authentication failed.')]")
+	private WebElement text_authFailerrorMessage;
 	
 	
 	
@@ -77,8 +79,6 @@ public class SignInPage {
 		Enter_input_email_login(enteremail);
 		input_password.sendKeys(enterPasword);
 		click_button_login_existing();
-		
-		assertEquals(driver.getTitle().contentEquals("My account - My Store"),true);
-		
+		 
 	}
 }
