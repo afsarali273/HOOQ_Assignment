@@ -2,7 +2,6 @@ package com.hooq.interview.test;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -25,20 +24,20 @@ public class TestApplication extends BaseClass {
 
 	@Test(priority=2,dependsOnMethods = "RegistrationOfUser",description="Sign In using valid credentials with newly created user")
 	public void LoginWithNewlyCreatedAccount() {
-		
+
 		signin.SignInExistingUser(SignInPage.enterEmailaddress, "Password");
 		AssertJUnit.assertTrue(driver.getTitle().contains("My account - My Store"));
 		myaccount.click_logout();
-		
+
 	}
-	
+
 	@Test(priority=3,dependsOnMethods = "LoginWithNewlyCreatedAccount",description="Sign In with invalid credentials")
 	public void loginWithInvalidCrfedentials() {
-		
+
 		signin.SignInExistingUser("invaliduser@test.com", "Password");
 		AssertJUnit.assertFalse(driver.getTitle().contains("My account - My Store"));
 	}
-	
+
 	@BeforeMethod
 	public void screenshotsBeforeMethod() {
 		Utils.takeScreenShots(driver);
@@ -52,7 +51,7 @@ public class TestApplication extends BaseClass {
 
 	@AfterTest
 	public void teardown() {
-		//driver.quit();
+		driver.quit();
 	}
 
 }
